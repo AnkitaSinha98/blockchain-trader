@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { AppBar, IconButton, Toolbar, Collapse } from "@material-ui/core";
-import SortIcon from "@material-ui/icons/Sort";
+//import SortIcon from "@material-ui/icons/Sort";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { Link as Scroll } from "react-scroll";
+//import SimpleBottomNavigationList from "./SimpleButtonNavigation";
+import CustomizedMenusList from "./CustomizedMenus";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -53,10 +55,10 @@ export default function Header() {
       <AppBar className={classes.appbar} elevation={0}>
         <Toolbar className={classes.appbarWrapper}>
           <h1 className={classes.appbarTitle}>
-            Blockchain<span className={classes.colorText}>Trader.</span>
+            Farm<span className={classes.colorText}>Trader.</span>
           </h1>
           <IconButton>
-            <SortIcon className={classes.icon} />
+            <CustomizedMenusList />
           </IconButton>
         </Toolbar>
       </AppBar>
@@ -69,7 +71,7 @@ export default function Header() {
         <div className={classes.container}>
           <h1 className={classes.title}>
             Welcome to <br />
-            Blockchain<span className={classes.colorText}>Trader.</span>
+            Farm<span className={classes.colorText}>Trader.</span>
           </h1>
           <Scroll to="place-to-visit" smooth={true}>
             <IconButton>
