@@ -2,6 +2,7 @@
 
 # About 
 Farm equipment management using blockchain for small scale farmers:
+
 It has two modules, namely the inventory management of the agriculture equipment and sharing of the equipment using block chain. Small scale farmers in India do not own farm equipment such as tractors, crop cutting machines etc. as they cannot afford it. This idea is to form a cooperative society and acquire the equipment with assistance from government and then share it among the members of the society. This requires Inventory management and sharing. We intend to implement both these modules using blockchain. 
 
 ## Requirements
