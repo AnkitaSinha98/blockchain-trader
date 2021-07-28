@@ -74,19 +74,37 @@ export default function CustomizedMenus() {
           <ListItemIcon>
             <SendIcon fontSize="small" />
           </ListItemIcon>
-          <ListItemText primary="Add " />
+          <ListItemText primary="Add Equipment" />
+        </StyledMenuItem>
+        <StyledMenuItem>
+          <ListItemIcon>
+            <SendIcon fontSize="small" />
+          </ListItemIcon>
+          <ListItemText primary="Decommision Equipment" />
         </StyledMenuItem>
         <StyledMenuItem>
           <ListItemIcon>
             <DraftsIcon fontSize="small" />
           </ListItemIcon>
-          <ListItemText primary="Fetch " />
+          <ListItemText primary="View All Equipment" />
+        </StyledMenuItem>
+        <StyledMenuItem>
+          <ListItemIcon>
+            <DraftsIcon fontSize="small" />
+          </ListItemIcon>
+          <ListItemText primary="View Idle Equipment" />
         </StyledMenuItem>
         <StyledMenuItem>
           <ListItemIcon>
             <InboxIcon fontSize="small" />
           </ListItemIcon>
-          <ListItemText primary="Organisation" />
+          <ListItemText primary="Request Equipment" />
+        </StyledMenuItem>
+        <StyledMenuItem>
+          <ListItemIcon>
+            <InboxIcon fontSize="small" />
+          </ListItemIcon>
+          <ListItemText primary="Release Equipment" />
         </StyledMenuItem>
       </StyledMenu>
     </div>
