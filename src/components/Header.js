@@ -55,7 +55,7 @@ export default function Header() {
       <AppBar className={classes.appbar} elevation={0}>
         <Toolbar className={classes.appbarWrapper}>
           <h1 className={classes.appbarTitle}>
-            Farm<span className={classes.colorText}>Trader.</span>
+            Farmer's<span className={classes.colorText}> Xchange</span>
           </h1>
           <IconButton>
             <CustomizedMenusList />
@@ -71,7 +71,7 @@ export default function Header() {
         <div className={classes.container}>
           <h1 className={classes.title}>
             Welcome to <br />
-            Farm<span className={classes.colorText}>Trader.</span>
+            Farmer's<span className={classes.colorText}> Xchange</span>
           </h1>
           <Scroll to="place-to-visit" smooth={true}>
             <IconButton>
