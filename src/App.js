@@ -31,6 +31,7 @@ export default function App() {
             <Route path="/products" component={Products} />
           </Switch>
         </Router>
+        <div className="footer">Developed by Soumadeep ❤ </div>
       </div>
     </div>
   );

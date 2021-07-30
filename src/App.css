@@ -16,3 +16,8 @@
   justify-content: center;
   font-size: 3rem;
 }
+.footer {
+  text-align: center;
+  padding: 5px;
+  background-color: rgba(43, 37, 37, 0.151);
+}
