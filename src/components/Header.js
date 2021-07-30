@@ -1,11 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { AppBar, IconButton, Toolbar, Collapse } from "@material-ui/core";
-//import SortIcon from "@material-ui/icons/Sort";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import { Link as Scroll } from "react-scroll";
-//import SimpleBottomNavigationList from "./SimpleButtonNavigation";
-import CustomizedMenusList from "./CustomizedMenus";
+import { AppBar, Toolbar, Collapse } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -51,21 +46,18 @@ export default function Header() {
     setChecked(true);
   }, []);
   return (
-    <div className={classes.root} id="header">
+    <div className={classes.root}>
       <AppBar className={classes.appbar} elevation={0}>
         <Toolbar className={classes.appbarWrapper}>
           <h1 className={classes.appbarTitle}>
             Farmer's<span className={classes.colorText}> Xchange</span>
           </h1>
-          <IconButton>
-            <CustomizedMenusList />
-          </IconButton>
         </Toolbar>
       </AppBar>
 
       <Collapse
         in={checked}
-        {...(checked ? { timeout: 1000 } : {})}
+        {...(checked ? { timeout: 1500 } : {})}
         collapsedHeight={50}
       >
         <div className={classes.container}>
@@ -73,11 +65,6 @@ export default function Header() {
             Welcome to <br />
             Farmer's<span className={classes.colorText}> Xchange</span>
           </h1>
-          <Scroll to="place-to-visit" smooth={true}>
-            <IconButton>
-              <ExpandMoreIcon className={classes.goDown} />
-            </IconButton>
-          </Scroll>
         </div>
       </Collapse>
     </div>
