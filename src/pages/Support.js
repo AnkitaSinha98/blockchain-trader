@@ -31,8 +31,8 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
   },
   title: {
-    color: "#fff",
-    fontSize: "4.5rem",
+    color: "#5AFF3D",
+    fontSize: "2.5rem",
   },
   titledown: {
     color: "#fff",
@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "4rem",
   },
 }));
-export default function Header() {
+export default function Support() {
   const classes = useStyles();
   const [checked, setChecked] = useState(false);
   useEffect(() => {
@@ -67,15 +67,16 @@ export default function Header() {
       >
         <div className={classes.container}>
           <h1 className={classes.title}>
-            Welcome to <br />
-            Farmer's<span className={classes.colorText}> Xchange</span>
+            <br />
+            Contact us :{" "}
+            <span className={classes.colorText}> soumadeep.netlify.app</span>
           </h1>
           <br />
           <br />
           <br />
           <br />
           <h3 className={classes.titledown}>
-            Blockchain enabled smart transaction network for Farmer{" "}
+            Toll Free Number : 1800-102-1111/2222{" "}
           </h3>
         </div>
       </Collapse>

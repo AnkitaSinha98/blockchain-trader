@@ -74,7 +74,7 @@ export default class Form extends React.Component {
 
   render() {
     return (
-      <form style={{ color: "white" }}>
+      <form>
         <TextField
           name="firstName"
           hintText="Farmer First Name"

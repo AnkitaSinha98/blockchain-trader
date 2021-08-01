@@ -8,6 +8,8 @@ import Navbar from "./components/Navbar";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Products from "./pages/Products";
 import Reports from "./pages/Reports";
+import Support from "./pages/Support";
+import Monitoring from "./pages/Monitoring";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -29,8 +31,10 @@ export default function App() {
           <Switch>
             <Route path="/" exact component={Header} />
             <Route path="/reports" component={PlaceToVisit} />
-            <Route path="/products" component={Products} />
+            <Route path="/products" component={Monitoring} />
             <Route path="/team" component={Reports} />
+            <Route path="/information" component={Products} />
+            <Route path="/support" exact component={Support} />
           </Switch>
         </Router>
         <div className="footer">Developed by Soumadeep ❤ </div>
