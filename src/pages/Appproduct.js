@@ -1,20 +1,23 @@
 import React, { Component } from "react";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+import injectTapEventPlugin from "react-tap-event-plugin";
 import orderBy from "lodash/orderBy";
 import SelectField from "material-ui/SelectField";
-import MenuItem from "@material-ui/core/MenuItem";
+import MenuItem from "material-ui/MenuItem";
 import TextField from "material-ui/TextField";
-import "../Appform.css";
 
-import Form from "../Form";
-import Table from "../Table";
+import "./App.css";
+import Form from "./Form";
+import Table from "./Table";
+
+injectTapEventPlugin();
 
 const invertDirection = {
   asc: "desc",
   desc: "asc",
 };
 
-class Reports extends Component {
+class App extends Component {
   state = {
     data: [
       {
@@ -130,7 +133,7 @@ class Reports extends Component {
     const lowerCaseQuery = this.state.query.toLowerCase();
     return (
       <MuiThemeProvider>
-        <div className="Appform">
+        <div className="App">
           <Form
             onSubmit={(submission) =>
               this.setState({
@@ -184,11 +187,11 @@ class Reports extends Component {
             )}
             header={[
               {
-                name: "Farmer First name",
+                name: "First name",
                 prop: "firstName",
               },
               {
-                name: "Famer Last name",
+                name: "Last name",
                 prop: "lastName",
               },
               {
@@ -206,4 +209,5 @@ class Reports extends Component {
     );
   }
 }
-export default Reports;
+
+export default App;

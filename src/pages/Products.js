@@ -22,7 +22,7 @@ function Products() {
   const [equipoptions] = useState(equipdata);
 
   return (
-    <div className="product">
+    <div className="Appform">
       <div
         style={{
           width: "40%",

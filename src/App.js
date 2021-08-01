@@ -7,6 +7,7 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Products from "./pages/Products";
+import Reports from "./pages/Reports";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -29,6 +30,7 @@ export default function App() {
             <Route path="/" exact component={Header} />
             <Route path="/reports" component={PlaceToVisit} />
             <Route path="/products" component={Products} />
+            <Route path="/team" component={Reports} />
           </Switch>
         </Router>
         <div className="footer">Developed by Soumadeep ❤ </div>
