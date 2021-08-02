@@ -68,12 +68,12 @@ class Information extends React.Component {
           </div>
           <div className="rounded-lg shadow-3xl p-20 ml-10 form ">
             <label className="text-3xl text-white-100 font-bold cursive">
-              Farmer address details
+              Farmer details
             </label>
             <div>Country Code: {scanresult.country}</div>
-            <div>Owner: {scanresult.as_owner}</div>
-            <div>ASN: {scanresult.asn}</div>
-            <div>Dataset: {scanresult.verbose_msg}</div>
+            <div>Organisation: {scanresult.as_owner}</div>
+            <div>{scanresult.asn}</div>
+            <div>{scanresult.verbose_msg}</div>
           </div>
         </div>
 

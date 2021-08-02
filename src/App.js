@@ -10,6 +10,7 @@ import Products from "./pages/Products";
 import Reports from "./pages/Reports";
 import Support from "./pages/Support";
 import Monitoring from "./pages/Monitoring";
+import Equipment from "./pages/Equipment";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -32,8 +33,9 @@ export default function App() {
             <Route path="/" exact component={Header} />
             <Route path="/reports" component={PlaceToVisit} />
             <Route path="/products" component={Monitoring} />
-            <Route path="/team" component={Reports} />
+            <Route path="/registerfarmer" component={Reports} />
             <Route path="/information" component={Products} />
+            <Route path="/equipments" component={Equipment} />
             <Route path="/support" exact component={Support} />
           </Switch>
         </Router>

@@ -24,19 +24,15 @@
 
 .cursive {
   font-family: "Amatic SC", cursive;
-  font-weight: 700;
+  font-size: 20px;
 }
 .form {
   height: 100px;
-  width: 300px;
+  width: 200px;
   margin-bottom: 50px;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.8),
-    rgba(255, 255, 255, 0.5)
-  );
+  font-size: 15px;
 }
 
 .form > input,
@@ -66,7 +62,7 @@ textarea:focus {
 }
 
 .form > button {
-  background-color: rgb(42, 42, 71);
+  background-color: rgb(0, 0, 0);
   border-radius: 8px;
   font-size: 20px;
   color: #fff;
@@ -91,6 +87,45 @@ textarea:focus {
   padding-bottom: 50px;
   min-height: 80px;
   display: flex;
-  flex-direction: column;
   align-items: center;
+
+flex-direction: column;
+}
+
+.Appxc {
+  color: rgb(255, 255, 255);
+  height: 150vh;
+  width: 200;
+  display: flex;
+  flex-direction: column;
+  
+  background-position: 10%;
+  padding-bottom: 50px;
+  
+  align-items: center;
+  text-align: center;
+  font-size: 25px;
+    
+}
+
+.Appxc > input,
+textarea {
+  padding: 3px;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  border: 1px solid lightgray;
+  background: #fff;
+}
+
+.Appxc > button {
+  background-color: rgb(96, 96, 240);
+  border-radius: 10px;
+  font-weight: 40px;
+  font-size: 20px;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  margin-top: 10px;
+  margin-left: 80px;
+  margin-right: 80px;
 }

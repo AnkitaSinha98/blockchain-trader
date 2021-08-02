@@ -25,22 +25,22 @@ function Products() {
     <div className="Appx">
       <div
         style={{
-          width: "40%",
+          width: "30%",
           marginLeft: "90px",
         }}
       >
-        <h2 style={{ color: "white" }}>Country</h2>
+        <h5 style={{ color: "white" }}>Country</h5>
         <Select options={countrylist} displayValue="label" />
       </div>
 
       <div
         style={{
-          width: "40%",
+          width: "30%",
           marginLeft: "90px",
           marginTop: "40px",
         }}
       >
-        <h2 style={{ color: "white" }}>Equipment List</h2>
+        <h5 style={{ color: "white" }}>Equipment List</h5>
         <Muliselect options={equipoptions} displayValue="Equipment" />
       </div>
     </div>
