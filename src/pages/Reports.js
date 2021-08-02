@@ -1,209 +1,102 @@
-import React, { Component } from "react";
-import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
-import orderBy from "lodash/orderBy";
-import SelectField from "material-ui/SelectField";
-import MenuItem from "@material-ui/core/MenuItem";
-import TextField from "material-ui/TextField";
-import "../Appform.css";
+import React, { useState } from "react";
+import { db } from "../firebase";
+import "../components/ContactForm.css";
 
-import Form from "../Form";
-import Table from "../Table";
+const Reports = () => {
+  const [id, SetId] = useState(null);
+  const [name, SetName] = useState(null);
+  const [gender, SetGender] = useState(null);
+  const [phone, SetPhone] = useState(null);
+  const [location, SetLocation] = useState(null);
+  const [message, SetMessage] = useState(null);
 
-const invertDirection = {
-  asc: "desc",
-  desc: "asc",
+  const HandleSubmit = (e) => {
+    e.preventDefault();
+    db.collection("Farmer")
+      .add({
+        FarmerId: id,
+        FarmerName: name,
+        Gender: gender,
+        FarmerPhone: phone,
+        FarmerLocation: location,
+        Note: message,
+      })
+      .then(() => {
+        alert("Farmer has been registered !!");
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
+
+    SetId("");
+    SetName("");
+    SetGender("");
+    SetPhone("");
+    SetLocation("");
+    SetMessage("");
+  };
+
+  return (
+    <form className="Appxc" onSubmit={HandleSubmit}>
+      Register Farmer
+      <br />
+      <br />
+      <label className="text-3xl text-white-100 font-bold cursive">
+        Farmer Id
+      </label>
+      <input
+        placeholder="Farmer Id"
+        value={id}
+        onChange={(e) => SetId(e.target.value)}
+      />
+      <label className="text-3xl text-white-100 font-bold cursive">
+        Farmer Name
+      </label>
+      <input
+        placeholder="Farmer Name"
+        value={name}
+        onChange={(e) => SetName(e.target.value)}
+      />
+      <label className="text-3xl text-white-100 font-bold cursive">
+        Gender
+      </label>
+      <input
+        placeholder="Gender"
+        value={gender}
+        onChange={(e) => SetGender(e.target.value)}
+      />
+      <label className="text-3xl text-white-100 font-bold cursive">
+        Farmer Phone
+      </label>
+      <input
+        placeholder="Farmer Phone"
+        value={phone}
+        onChange={(e) => SetPhone(e.target.value)}
+      />
+      <label className="text-3xl text-white-100 font-bold cursive">
+        Farmer Location/Address
+      </label>
+      <textarea
+        placeholder="Farmer Location"
+        value={location}
+        onChange={(e) => SetLocation(e.target.value)}
+      />
+      <label className="text-3xl text-white-100 font-bold cursive">
+        Remark
+      </label>
+      <textarea
+        placeholder="Note"
+        value={message}
+        onChange={(e) => SetMessage(e.target.value)}
+      />
+      <button
+        type="submit"
+        className="text-3xl text-white-100 font-bold cursive"
+      >
+        Submit
+      </button>
+    </form>
+  );
 };
 
-class Reports extends Component {
-  state = {
-    data: [
-      {
-        firstName: "Tann",
-        lastName: "Gounin",
-        username: "tgounin0",
-        email: "tgounin0@wordpress.com",
-        passsword: "yJG2MuL5piY",
-      },
-      {
-        firstName: "Elana",
-        lastName: "Ricioppo",
-        username: "ericioppo1",
-        email: "ericioppo1@timesonline.co.uk",
-        passsword: "S7p9ReUoQe",
-      },
-      {
-        firstName: "Bentlee",
-        lastName: "Decourt",
-        username: "bdecourt2",
-        email: "bdecourt2@about.me",
-        passsword: "MWU9hc",
-      },
-      {
-        firstName: "Hyacintha",
-        lastName: "Choudhury",
-        username: "hchoudhury3",
-        email: "hchoudhury3@va.gov",
-        passsword: "kRtWP1",
-      },
-      {
-        firstName: "Ari",
-        lastName: "Spedroni",
-        username: "aspedroni4",
-        email: "aspedroni4@sun.com",
-        passsword: "o78ibUPPmDlZ",
-      },
-      {
-        firstName: "Abelard",
-        lastName: "Rodriguez",
-        username: "arodriguez5",
-        email: "arodriguez5@shutterfly.com",
-        passsword: "g2jd4AwfpA",
-      },
-      {
-        firstName: "Ikey",
-        lastName: "Latek",
-        username: "ilatek6",
-        email: "ilatek6@berkeley.edu",
-        passsword: "GAsgPpKvJx",
-      },
-      {
-        firstName: "Justis",
-        lastName: "Habbeshaw",
-        username: "jhabbeshaw7",
-        email: "jhabbeshaw7@simplemachines.org",
-        passsword: "GN2aQt3ZPq",
-      },
-      {
-        firstName: "Maddie",
-        lastName: "Bayne",
-        username: "mbayne8",
-        email: "mbayne8@constantcontact.com",
-        passsword: "H1GmQcyG6",
-      },
-      {
-        firstName: "Gerrie",
-        lastName: "Rulton",
-        username: "grulton9",
-        email: "grulton9@reverbnation.com",
-        passsword: "tcwp6oONe",
-      },
-    ],
-    editIdx: -1,
-    columnToSort: "",
-    sortDirection: "desc",
-    query: "",
-    columnToQuery: "firstName",
-  };
-
-  handleRemove = (i) => {
-    this.setState((state) => ({
-      data: state.data.filter((row, j) => j !== i),
-    }));
-  };
-
-  startEditing = (i) => {
-    this.setState({ editIdx: i });
-  };
-
-  stopEditing = () => {
-    this.setState({ editIdx: -1 });
-  };
-
-  handleSave = (i, x) => {
-    this.setState((state) => ({
-      data: state.data.map((row, j) => (j === i ? x : row)),
-    }));
-    this.stopEditing();
-  };
-
-  handleSort = (columnName) => {
-    this.setState((state) => ({
-      columnToSort: columnName,
-      sortDirection:
-        state.columnToSort === columnName
-          ? invertDirection[state.sortDirection]
-          : "asc",
-    }));
-  };
-
-  render() {
-    const lowerCaseQuery = this.state.query.toLowerCase();
-    return (
-      <MuiThemeProvider>
-        <div className="Appform">
-          <Form
-            onSubmit={(submission) =>
-              this.setState({
-                data: [...this.state.data, submission],
-              })
-            }
-          />
-          <div style={{ display: "flex" }}>
-            <div style={{ display: "flex", margin: "auto" }}>
-              <TextField
-                hintText="Query"
-                floatingLabelText="Query"
-                value={this.state.query}
-                onChange={(e) => this.setState({ query: e.target.value })}
-                floatingLabelFixed
-              />
-              <SelectField
-                style={{ marginLeft: "1em" }}
-                floatingLabelText="Select a column"
-                value={this.state.columnToQuery}
-                onChange={(event, index, value) =>
-                  this.setState({ columnToQuery: value })
-                }
-              >
-                <MenuItem value="firstName" primaryText="First Name" />
-                <MenuItem value="lastName" primaryText="Last Name" />
-                <MenuItem value="username" primaryText="Username" />
-                <MenuItem value="email" primaryText="Email" />
-              </SelectField>
-            </div>
-          </div>
-          <Table
-            handleSort={this.handleSort}
-            handleRemove={this.handleRemove}
-            startEditing={this.startEditing}
-            editIdx={this.state.editIdx}
-            stopEditing={this.stopEditing}
-            handleSave={this.handleSave}
-            columnToSort={this.state.columnToSort}
-            sortDirection={this.state.sortDirection}
-            data={orderBy(
-              this.state.query
-                ? this.state.data.filter((x) =>
-                    x[this.state.columnToQuery]
-                      .toLowerCase()
-                      .includes(lowerCaseQuery)
-                  )
-                : this.state.data,
-              this.state.columnToSort,
-              this.state.sortDirection
-            )}
-            header={[
-              {
-                name: "Farmer First name",
-                prop: "firstName",
-              },
-              {
-                name: "Famer Last name",
-                prop: "lastName",
-              },
-              {
-                name: "Username",
-                prop: "username",
-              },
-              {
-                name: "Email",
-                prop: "email",
-              },
-            ]}
-          />
-        </div>
-      </MuiThemeProvider>
-    );
-  }
-}
 export default Reports;

@@ -3,11 +3,9 @@ import { db } from "../firebase";
 import "../components/ContactForm.css";
 
 const Equipment = () => {
-  const [number, SetNumber] = useState(null);
   const [id, SetId] = useState(null);
   const [name, SetName] = useState(null);
   const [type, SetType] = useState(null);
-  const [status, SetStatus] = useState(null);
   const [location, SetLocation] = useState(null);
   const [message, SetMessage] = useState(null);
 
@@ -15,11 +13,9 @@ const Equipment = () => {
     e.preventDefault();
     db.collection("Equipment")
       .add({
-        SerialNumber: number,
         EquipmentId: id,
         EquipmentName: name,
         EquipmentType: type,
-        EquipmentStatus: status,
         EquipmentLocation: location,
         Note: message,
       })
@@ -30,11 +26,9 @@ const Equipment = () => {
         alert(error.message);
       });
 
-    SetNumber("");
     SetId("");
     SetName("");
     SetType("");
-    SetStatus("");
     SetLocation("");
     SetMessage("");
   };
@@ -44,12 +38,6 @@ const Equipment = () => {
       Register Equipment
       <br />
       <br />
-      <label className="text-3xl text-white-100 cursive">Serial Number</label>
-      <input
-        placeholder="Serial Number"
-        value={number}
-        onChange={(e) => SetNumber(e.target.value)}
-      />
       <label className="text-3xl text-white-100 font-bold cursive">
         Equipment Id
       </label>
@@ -75,22 +63,16 @@ const Equipment = () => {
         onChange={(e) => SetType(e.target.value)}
       />
       <label className="text-3xl text-white-100 font-bold cursive">
-        Equipment Status (Idle/Repair/Occupied)
+        Equipment Location/Address
       </label>
-      <input
-        placeholder="Equipment Status"
-        value={status}
-        onChange={(e) => SetStatus(e.target.value)}
-      />
-      <label className="text-3xl text-white-100 font-bold cursive">
-        Location of Equipment
-      </label>
-      <input
+      <textarea
         placeholder="Equipment Location"
         value={location}
         onChange={(e) => SetLocation(e.target.value)}
       />
-      <label className="text-3xl text-white-100 font-bold cursive">Note</label>
+      <label className="text-3xl text-white-100 font-bold cursive">
+        Remark
+      </label>
       <textarea
         placeholder="Note"
         value={message}

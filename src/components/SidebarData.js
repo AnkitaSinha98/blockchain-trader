@@ -17,31 +17,32 @@ export const SidebarData = [
     cName: "nav-text",
   },
   {
-    title: "Products",
-    path: "/products",
-    icon: <FaIcons.FaCartPlus />,
-    cName: "nav-text",
-  },
-  {
-    title: "Information",
-    path: "/information",
-    icon: <FaIcons.FaCartPlus />,
-    cName: "nav-text",
-  },
-  {
     title: "Register Farmer",
     path: "/registerfarmer",
     icon: <IoIcons.IoMdPeople />,
     cName: "nav-text",
   },
   {
-    title: "Equipments",
+    title: "Register Equipment",
     path: "/equipments",
     icon: <IoIcons.IoMdPeople />,
     cName: "nav-text",
   },
   {
-    title: "Messages",
+    title: "List Equipment",
+    path: "/products",
+    icon: <FaIcons.FaCartPlus />,
+    cName: "nav-text",
+  },
+  {
+    title: "Request Equipment",
+    path: "/information",
+    icon: <FaIcons.FaCartPlus />,
+    cName: "nav-text",
+  },
+
+  {
+    title: "Release Equipment",
     path: "/messages",
     icon: <FaIcons.FaEnvelopeOpenText />,
     cName: "nav-text",
