@@ -10,7 +10,9 @@ import Products from "./pages/Products";
 import Reports from "./pages/Reports";
 import Support from "./pages/Support";
 import Monitoring from "./pages/Monitoring";
+import Farmer from "./pages/Farmer";
 import Equipment from "./pages/Equipment";
+import ListEquipment from "./pages/ListEquipment";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -33,10 +35,12 @@ export default function App() {
             <Route path="/" exact component={Header} />
             <Route path="/reports" component={PlaceToVisit} />
             <Route path="/products" component={Monitoring} />
+            <Route path="/farmer" component={Farmer} />
             <Route path="/registerfarmer" component={Reports} />
             <Route path="/information" component={Products} />
             <Route path="/equipments" component={Equipment} />
             <Route path="/support" exact component={Support} />
+            <Route path="/messages" exact component={ListEquipment} />
           </Switch>
         </Router>
         <div className="footer">Developed by Soumadeep ❤ </div>

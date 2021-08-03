@@ -2,13 +2,19 @@ import React, { useState } from "react";
 import Muliselect from "multiselect-react-dropdown";
 import Select from "react-select";
 
-function Products() {
-  var countrylist = [
+function ListEquipment() {
+  var farmerList = [
     { value: 1, label: "Soumadeep" },
     { value: 2, label: "Ravi Kumar" },
     { value: 1, label: "Ramayana" },
     { value: 1, label: "Param" },
     { value: 1, label: "Mohan" },
+  ];
+
+  var status = [
+    { value: 3, label: "Idle" },
+    { value: 3, label: "Repaired" },
+    { value: 3, label: "Occupied" },
   ];
 
   const equipdata = [
@@ -36,7 +42,18 @@ function Products() {
         }}
       >
         <h5 style={{ color: "white" }}>Farmer Name</h5>
-        <Select options={countrylist} displayValue="label" />
+        <Select options={farmerList} displayValue="label" />
+      </div>
+
+      <div
+        style={{
+          width: "30%",
+          marginLeft: "90px",
+        }}
+      >
+        <br />
+        <h5 style={{ color: "white" }}>Equipment Status</h5>
+        <Select options={status} displayValue="label" />
       </div>
 
       <div
@@ -53,4 +70,4 @@ function Products() {
   );
 }
 
-export default Products;
+export default ListEquipment;

@@ -29,11 +29,18 @@ export const SidebarData = [
     cName: "nav-text",
   },
   {
+    title: "List Farmers",
+    path: "/farmer",
+    icon: <FaIcons.FaCartPlus />,
+    cName: "nav-text",
+  },
+  {
     title: "List Equipment",
     path: "/products",
     icon: <FaIcons.FaCartPlus />,
     cName: "nav-text",
   },
+
   {
     title: "Request Equipment",
     path: "/information",
