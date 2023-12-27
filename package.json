@@ -8,7 +8,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
-    "axios": "^0.21.1",
+    "axios": "^1.6.3",
     "firebase": "^8.8.1",
     "material-ui": "^0.20.2",
     "multiselect-react-dropdown": "^2.0.4",
@@ -16,7 +16,7 @@
     "react-dom": "^16.13.1",
     "react-icons": "^4.2.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.3",
+    "react-scripts": "4.0.0",
     "react-scroll": "^1.8.1",
     "react-select": "^4.3.1",
     "react-tap-event-plugin": "^3.0.3"
